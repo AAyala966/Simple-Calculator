@@ -1,1 +1,74 @@
+import java.util.Scanner;
+
+public class Main {
+    
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+            int exitnumber = 1;
+            
+            while (exitnumber == 1){
+            try{
+            System.out.print("Please enter your first number:");
+            String numOne = scanner.nextLine();
+            double numone = Double.parseDouble(numOne);
+
+            System.out.print("Please enter your second number:");
+            String numTwo = scanner.nextLine();
+            double numtwo = Double.parseDouble(numTwo);
+
+            System.out.print("Please enter the number that corresponds to the operation you want: 1 for addition, 2 for subtraction, 3 for multiplication, 4 for division:");
+            String op = scanner.nextLine();
+            int operation = Integer.parseInt(op);
+
+            switch (operation) {
+            case 1: {
+            double addition = numone + numtwo;
+            System.out.println("Answer: " + addition);
+            break;
+            }
+            case 2: {
+            double subtraction = numone - numtwo;
+            System.out.println("Answer: " + subtraction);
+            break;
+            }
+            case 3: {
+            double multiplication = numone * numtwo;
+            System.out.println("Answer: " + multiplication);
+            break;
+            }
+            case 4: {
+            if (numtwo == 0){
+            System.out.println("Error: Cannot divide by 0. Retry with a number other than 0.");
+            }
+            else{
+            double division = numone / numtwo;
+            double remainder = numone % numtwo;
+            System.out.println("Answer: " + division);
+            System.out.println("Remainder: " + remainder);
+            }
+            }
+            default: {
+            }
+            }
+            System.out.println("Thank you. If you wish to continue using the calculator, press 1. If you wish to exit, press 2.");
+                String exitnum = scanner.nextLine();
+                exitnumber = Integer.parseInt(exitnum);
+        }
+        catch (NumberFormatException e){
+            System.out.println("Please enter a number, not letters.");
+            System.out.println("If you wish to continue using the calculator, press 1. If you wish to exit, press 2.");
+            String exitnum = scanner.nextLine();
+            exitnumber = Integer.parseInt(exitnum);
+        }
+        if (exitnumber == 2){
+        System.out.println("Now exiting.");
+        }
+    
+        } 
+        scanner.close();
+    }
+}
+
+    
+        
 
